@@ -1,0 +1,4 @@
+arr[] = {7, 3, 2, 4, 9, 12, 56} , m = 3 
+
+sort the given array 
+then pick the subarray of size m with minimum difference of its ith and i-m+1th index
