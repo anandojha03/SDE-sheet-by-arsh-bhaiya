@@ -1,0 +1,42 @@
+class Solution {
+    public List<Integer> spiralOrder(int[][] arr) {
+        int topRow = 0;
+        int rightCol = arr[0].length - 1;
+        int bottomRow = arr.length - 1;
+        int leftCol = 0;
+        List<Integer> res = new ArrayList<Integer>();
+        while(topRow <= bottomRow && leftCol <= rightCol){
+            
+            //topmost row traversal
+            for(int i = leftCol ; i <= rightCol ; i++){
+                res.add(arr[topRow][i]);
+            }
+            topRow++;
+            
+            //rightmost column traversal
+            for(int i = topRow ; i <= bottomRow ; i++){
+                res.add(arr[i][rightCol]);
+            }
+            rightCol--;
+            
+            //bottommost row traversal
+            if(topRow <= bottomRow){
+                for(int i = rightCol ; i >= leftCol ; i--){
+                res.add(arr[bottomRow][i]);
+            }
+            bottomRow--;
+            }
+            
+            
+            //leftmost column traversal
+            if(leftCol <= rightCol){
+                for(int i = bottomRow ; i >= topRow ; i--){
+                res.add(arr[i][leftCol]);
+            }
+            leftCol++;
+            }
+            
+        }
+        return res;
+    }
+}
