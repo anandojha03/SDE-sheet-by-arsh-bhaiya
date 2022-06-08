@@ -1,0 +1,30 @@
+class Solution {
+    public String longestCommonPrefix(String[] arr) {
+        String ans = "";
+        if(arr.length == 0){
+            return ans;
+        }
+        ans = arr[0];
+        for(int i = 1 ; i < arr.length ; i++){
+            ans = common(ans , arr[i]);
+            if(ans.length() == 0){
+                return ans;
+            }
+        }
+        return ans;
+    }
+    private String common(String s1 , String s2){
+        StringBuffer sb = new StringBuffer();
+        int m = s1.length();
+        int n = s2.length();
+        int counter = (m < n) ? m : n;
+        for(int i = 0 ; i < counter ; i++){
+            if(s1.charAt(i) == s2.charAt(i)){
+                sb.append(s1.charAt(i));
+            }else{
+                return sb.toString();
+            }
+        }
+        return sb.toString();
+    }
+}
